@@ -39,6 +39,6 @@ This project demonstrates web page development using JSON, modern JavaScript, an
 
 ## 6. Author
 
-Name: Nur Shahirah Binti Mohamad Nazim  
+Name: Nur Shahirah Binti Mohamad Nazim (CI240091)
 Course: BIC21203 Web Development  
 Lab: Lab 4b Client-Side Scripting (JSON and jQuery)
