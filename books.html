@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Information</title>
+</head>
+<body>
+    <h1>Book Information</h1>
+    <div id="bookDetails">
+        <p>Loading book information...</p>
+    </div>
+    <script>
+        // retrieve json data using fetch()
+        fetch("books.json")
+            .then(response => {
+                // check request successful
+                if (!response.ok) {
+                    throw new Error("Unable to retrieve book data.");
+                }
+
+                // convert json response into JavaScript object
+                return response.json();
+            })
+            .then(data => {
+                const container = document.getElementById("bookDetails");
+
+                // display title first book
+                const firstTitle = document.createElement("p");
+                firstTitle.textContent = "First Book Title: " + data.books[0].title;
+                container.appendChild(firstTitle);
+
+                // display author second book
+                const secondAuthor = document.createElement("p");
+                secondAuthor.textContent = "Second Book Author: " + data.books[1].author;
+                container.appendChild(secondAuthor);
+
+                // display genres of both books
+                const genreHeading = document.createElement("h2");
+                genreHeading.textContent = "Genres of Both Books";
+                container.appendChild(genreHeading);
+
+                data.books.forEach(book => {
+                    const bookGenre = document.createElement("p");
+                    bookGenre.textContent =
+                        book.title + " — " + book.genres.join(", ");
+                    container.appendChild(bookGenre);
+                });
+            })
+            .catch(error => {
+                //dDisplay userfriendly error message
+                const container = document.getElementById("bookDetails");
+                container.textContent = "Error: Unable to load book information. Please try again.";
+                console.error(error);
+            });
+    </script>
+</body>
+</html>

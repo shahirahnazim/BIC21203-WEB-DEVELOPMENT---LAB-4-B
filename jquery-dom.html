@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Manipulation</title>
+
+    <style>
+        .myStyle {
+            background-color: coral;
+            padding: 16px;
+        }
+    </style>
+
+    <!-- jQuery 4.0.0 Full-Build CDN -->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+</head>
+<body>
+    <h1>jQuery DOM Manipulation</h1>
+    <div id="myElement">Original Text</div>
+    <br>
+    <div id="myDIV">
+        <p>I am a myDIV.</p>
+    </div>
+    <br>
+    <button id="myButton">Click me</button>
+    <script>
+        // wait until the document is ready
+        $(document).ready(function() {
+
+            // (a) Change the text of myElement
+            $("#myElement").text("Modified Text");
+
+            // (b) Add myStyle class to myDIV
+            $("#myDIV").addClass("myStyle");
+
+            // (c) Display alert when button is clicked
+            $("#myButton").on("click", function() { 
+                alert("Button clicked!");
+            });
+        });
+    </script>
+</body>
+</html>
